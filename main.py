@@ -1,7 +1,4 @@
-# This is a sample Python script.
-
-# Press Shift+F10 to execute it or replace it with your code.
-# Press Double Shift to search everywhere for classes, files, tool windows, actions, and settings.
+import getpass
 
 
 def print_hi(name):
@@ -21,8 +18,13 @@ if __name__ == '__main__':
                 d['key'] = val
 
         username = input("Enter Username")
-        password = input("Enter Password")
-
+        password = getpass.getpass("Enter Password")
+        for i in d.keys():
+            if username == i:
+                while password != d.get(i):
+                    password = getpass.getpass("Password incorrect")
+                break
+        print("Verified User")
 
     else:
         username = input("Enter Username")
@@ -36,6 +38,3 @@ if __name__ == '__main__':
 
         print("Run the program again to login to the system")
 
-
-
-# See PyCharm help at https://www.jetbrains.com/help/pycharm/
