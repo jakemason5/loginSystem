@@ -11,6 +11,31 @@ def print_hi(name):
 
 # Press the green button in the gutter to run the script.
 if __name__ == '__main__':
-    print_hi('PyCharm')
+    choice = input("Choose Login or New User")
+
+    if choice == "Login":
+        d = {}
+        with open('passwords.txt') as f:
+            for line in f:
+                (key, val) = line.split()
+                d['key'] = val
+
+        username = input("Enter Username")
+        password = input("Enter Password")
+
+
+    else:
+        username = input("Enter Username")
+        password = input("Enter Password")
+        lines = [username, password]
+        with open('passwords.txt', 'a') as f:
+            for line in lines:
+                f.write(line)
+                f.write(" ")
+            f.write('\n')
+
+        print("Run the program again to login to the system")
+
+
 
 # See PyCharm help at https://www.jetbrains.com/help/pycharm/
